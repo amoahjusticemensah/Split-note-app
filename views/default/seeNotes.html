@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-with, initial-scale1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and',chrome=1' or ''}}">
+    <link rel="stylesheet" href="{{=URL('static','css/#')}}"/>
+    <!-- [if It IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3/7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    body{
+     width: 32%;
+	float: right;
+	margin-right: ;
+	margin-left: 200px;
+	color: white;
+	text-align: center;
+	background: rgba(0,0,0,0.4);
+	border-radius: 10px;
+	padding: 35px 34px 66px 18px;
+	background-image: url('../static/images/0.jpg');
+	background-repeat: no repeat;
+	background-size: 100% 800px;
+	
+    }
+
+    </style>
+
+  </head>  
+    <body>
+
+
+
+
+		{{if notes:}}
+		  {{for note in notes:}}
+		    <div class="panel panel-danger">
+		      <div class="panel-heading">
+		          <p><h4>Title:</h4>  
+		          <h5>  {{=note.db_title}}</h5>
+		       </div>
+
+		       <div class="panel-body">      
+		          <h5>Body:</h5> 
+
+		            {{=note.db_body}}</p>
+		      </div>
+		      <a href="{{=URL('delete/' + str(note.id))}}">Delete</a>
+		      <a href="{{=URL('edit/' + str(note.id))}}">Edit</a>
+		     </p>
+		    </div> 
+		  		  
+		  		  {{pass}}
+		{{else:}}
+		  <h2>No Note Found</h2>
+		{{pass}}  
+		   </div>
+		   <script src="js/jquery.js"></script>
+		   <script src="js/bootstrap.js"></script>
+		    <link rel="stylesheet" href="{{=URL('static','css/bootstrap.css')}}"/>
+		    <script src="{{=URL('static','js/jquery-3.3.1.min.js')}}"></script> 
+       </p>
+       </div>
+      </div>
+     </body>
+</html>
+
