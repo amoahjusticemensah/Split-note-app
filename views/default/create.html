@@ -7,27 +7,54 @@
     <meta name="viewport" content="width=device-with, initial-scale1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and',chrome=1' or ''}}">
     <style>
-      
-    </style>
+ 
+  body{
+    background-image: url('../static/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 800px;
+    margin: 0;
+    padding: 0;
+
+  }
+ 
+ 
+  h1{
+    color: white;
+    padding: 10px 14px 4px 500px;
+  }
+  
+  .title-box>input{
+    
+  }
+ 
+ 
+   
+  </style>
     
     <!-- [if It IE 9]>
          <script src="https://oss.maxcdn.com/libs/html5shiv/3/7.0/html5shiv.js"></script>
          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
  </head>  
+  <body> 
 
-   <h1>create Note</h1>
-  <div class="title">
-    <label for="title">Title</label>
+   <h1 style="font-style: italic;">Create Your Personal Note here!</h1>
+
+<div class="container" style="margin-left: auto;margin-right: auto;" >
+ <div class="row">
+<div class="col-md-12">
+  <div class="title-box">
+    <label for="title" style="color:white;">Title</label>
     <input type="text" name="title"></input>
   </div>  
 
-  <div>
-     <label for="body">Body</label>
-     <textarea type="text" name="body"></textarea> 
+  <div class="body-box" >
+     <label for="body" style="color:white;">Body</label>
+     <textarea type="text" name="body" cols="50" rows="20"></textarea> 
   </div>
   
-  <div>
+  <div class="btn">
      <input type="submit" value="Save Note">
   </div>
+ </body> 
 </form>         

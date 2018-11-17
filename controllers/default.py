@@ -15,7 +15,7 @@ def store():
     )
 
 	if results:
-	     return "Note Has Been Added Successfully"
+	     redirect (URL('split'))
 	else:
 	     return "Authenticate Error"
 
@@ -43,7 +43,7 @@ def update():
             db_body =submitted_body
             )
 
-       return 'Note Updated Successfully'
+       redirect (URL('seeNotes'))
        
     else:
        return 'No Note Found'
@@ -55,13 +55,16 @@ def delete():
      if db(db.notes.id == submitted_id).select():
 
         db(db.notes.id == submitted_id).delete()
-        return 'Note Deleted Successfully'
+        redirect (URL('seeNotes'))
 
      else:
         return 'No Note With the ID found'                   	
 
 def site():
     return dict()
+
+
+
 
 
 def signup():
@@ -72,22 +75,39 @@ def register():
     submitted_lastname = request.vars.lastname 
     submitted_email = request.vars.email
     submitted_password = request.vars.password
-    submitted_tel = request.vars.tel
-    submitted_radio =request.vars.radio
+    submitted_re_password = request.vars.re_password
+    submitted_Mobile = request.vars.Mobile
 
+    if (submitted_password == submitted_re_password):
+         redirect (URL('login'))
+      
+
+    else:
+        return "Please the PASSWORD you Entered does not match please go back to Check your PASSWORD"
+        
+    
     results = db.users.insert(
          db_firstname = submitted_firstname,
          db_lastname= submitted_lastname,
          db_email = submitted_email,
          db_password= submitted_password,
-         db_tel= submitted_tel,
-         db_radio= submitted_radio
+         db_re_password=submitted_re_password,
+         db_Mobile= submitted_Mobile
+         
     )
+    
 
     if results:
-         return "user signup successfully"
+
+           redirect (URL('login'))
+
     else:
          return "Authenticate Error"
+
+
+
+
+    
 
 def login():
     return dict()  
@@ -98,7 +118,7 @@ def signin():
 
     if db(db.users.db_email==submitted_email
         and db.users.db_password==submitted_password).count()>0:
-        return "User Logged in Successfully"
+        redirect (URL('split'))
          
     else:
         return "User Not found. Please Sign up"          

@@ -1,17 +1,16 @@
 <form action="{{=URL('register')}}" method="post" > 
 <!DOCTYPE html>
 <html>
-
 <head>
 
         <meta charset="utf-8">
         <meta charset-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         
-        <!--[if It IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        
+        <!-- [if It IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3/7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+       <![endif]-->
   
         <title> Sign Up Page</title>
 
@@ -49,6 +48,7 @@ text-align: center;
 #reg{
 	width: 32%;
 	float: right;
+    position: relative;
 	margin-right: 100px;
 	color: white;
 	text-align: center;
@@ -101,30 +101,33 @@ text-align: center;
 }
 </style>
 
+</head>
+
  <h1> NoteApp Registration Form</h1>
 
 
-</head>   
    <body >
 
-  
+{{if response.flash:}}
+{{= response.flash}}
+{{pass}}
    
  <div id="reg">
  <h2>Sign Up Here!</h2>
      <span class="glyphicon glyphicon-user"></span>&nbsp;
-     <input type="text" name="uname" id="uname" placeholder="First Name" autofocus=""><br>
+     <input type="text" name="firstname" id="uname" placeholder="First Name" autofocus="" required><br>
      <br>
      <span class="glyphicon glyphicon-user"></span>&nbsp;
-     <input type="text" name="uname" id="uname" placeholder="Last Name" autofocus=""><br>
+     <input type="text" name="lastname" id="uname" placeholder="Last Name" autofocus="" required><br>
      <br> 
      <span class="glyphicon glyphicon-envelope"></span>&nbsp;
-     <input type="email" name="email" id="uname" placeholder="Enter Your Registration Gmail"><br><br>
+     <input type="email" name="email" id="uname" placeholder="Enter Your Registration Gmail" required><br><br>
 
      <span class="glyphicon glyphicon-lock"></span>
-     <input type="password" name="pass" id="uname" placeholder="Enter Your Registration Password"><br><br>
+     <input type="password" name="password" id="uname" placeholder="Enter Your Registration Password" required ><br><br>
      
      <span class="glyphicon glyphicon-lock"></span>&nbsp;
-     <input type="password" name="pass" id="uname" placeholder="Re-Enter Your Registration Password"><br><br> 
+     <input type="password" name="re_password" id="uname" placeholder="Re-Enter Your Registration Password" required><br><br> 
      <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
      <select id="num">
      <option>+ 91</option>
@@ -136,19 +139,16 @@ text-align: center;
      </select> &nbsp;
 
      <span class="glyphicon glyphicon-earphone"></span>
-     <input type="tel" id="uname" name="Mobile"  placeholder="Enter you ur Mobile NO"><br>
+     <input type="tel" id="uname" name="Mobile"  placeholder="Enter you ur Mobile NO" required><br>
      <br> 
-     <input type="radio" id="ma"><span id="ma">Male</span>&nbsp; 
+     <input type="radio" id="ma"><span id="ma" required>Male</span>&nbsp; 
      <input type="radio" id="ma">
      <span id="ma">Female</span>&nbsp; 
-     <input type="radio" id="ma"><span id="ma">Others</span>&nbsp;<br><br>
-     <input type="checkbox" id="ch"><span id="ch">I'm Agree All The Terms Conditions</span><br><nr>
-     <button type="submit" id="sub">Register Here</button>
-
-
+     <input type="radio" id="ma" required><span id="ma">Others</span>&nbsp;<br><br>
+     <input type="checkbox" id="ch"><span id="ch">I'm Agree All The Terms Conditions</span><br><nr></nr>
+     <input type="submit" id="sub" value="Register">
     
-
-
-   </body>
-
-</html>   
+    </div>
+  </body>
+</html>
+</form>
